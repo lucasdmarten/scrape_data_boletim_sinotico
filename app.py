@@ -25,15 +25,7 @@ def gen_list_dates(start, end):
     return [to_datetime(d) for d in date_range(start, end, freq='12H')]
 
 
-dates = list()
-text_data = list()
-url_data = list()
-level_data = list()
-prev24 = list()
-prev48 = list()
-prev72 = list()
-prev96 = list()
-prev120 = list()
+
 
 
 
@@ -51,7 +43,15 @@ for date_obj in gen_list_dates('20080901T00', '20081231T12'):
         soup = BeautifulSoup(html, 'html.parser')
         texts = soup.find_all(class_="texto")
         
-
+        dates = list()
+        text_data = list()
+        url_data = list()
+        level_data = list()
+        prev24 = list()
+        prev48 = list()
+        prev72 = list()
+        prev96 = list()
+        prev120 = list()
         for i, data in enumerate(texts):
             
             if data.find('a'):
@@ -67,6 +67,7 @@ for date_obj in gen_list_dates('20080901T00', '20081231T12'):
                 prev72.append(soup.find_all('a')[-3].get_attribute_list('href')[0].split("'")[1])
                 prev96.append(soup.find_all('a')[-4].get_attribute_list('href')[0].split("'")[1])
                 prev120.append(soup.find_all('a')[-5].get_attribute_list('href')[0].split("'")[1])
+                
         os.system(f"mkdir -p ./data/{date_obj.strftime('%Y')}/")
         response = {
             "dates":dates,
