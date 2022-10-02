@@ -24,9 +24,6 @@ def get_current_tab(driver):
     current_tab = driver.current_window_handle
     return current_tab
 
-def get_tabs(driver):
-    tabs = driver.window_handles
-
 def switch_to_tab_by_index(driver, tab):
     driver.switch_to.window(tab)
     return 
