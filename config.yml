@@ -1,0 +1,27 @@
+url: "https://tempo.cptec.inpe.br/boletim-tecnico/faces/buscar.jsp"
+
+id_elements:
+  hour: 
+    'j_id_jsp_31316922_1:hora'
+  day: 
+    'j_id_jsp_31316922_1:dia'
+  month: 
+    'j_id_jsp_31316922_1:mes'
+  year: 
+    'j_id_jsp_31316922_1:ano'
+
+structure_chart:
+  - "satellite"
+  - "250hPa"
+  - "500hPa"
+  - "850hPa"
+  - "mean_sea_level"
+
+prediction:
+  - 24
+  - 48
+  - 72
+  - 96
+  - 120
+
+
