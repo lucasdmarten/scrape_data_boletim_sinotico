@@ -25,10 +25,6 @@ def gen_list_dates(start, end):
     return [to_datetime(d) for d in date_range(start, end, freq='12H')]
 
 
-
-
-
-
 for date_obj in gen_list_dates('20080901T00', '20081231T12'):
     fmt = '%Y%m%d%H'
     date_rod = date_obj.strftime(fmt)
@@ -67,8 +63,9 @@ for date_obj in gen_list_dates('20080901T00', '20081231T12'):
                 prev72.append(soup.find_all('a')[-3].get_attribute_list('href')[0].split("'")[1])
                 prev96.append(soup.find_all('a')[-4].get_attribute_list('href')[0].split("'")[1])
                 prev120.append(soup.find_all('a')[-5].get_attribute_list('href')[0].split("'")[1])
-                
+
         os.system(f"mkdir -p ./data/{date_obj.strftime('%Y')}/")
+        
         response = {
             "dates":dates,
             "text_data":text_data,
